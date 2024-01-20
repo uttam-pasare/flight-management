@@ -14,4 +14,5 @@ public class Flight {
     private String name;
     private String route;
     private Timestamp departure;
+    private String status;
 }

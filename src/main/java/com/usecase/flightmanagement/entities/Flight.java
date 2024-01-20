@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 
-@Table(name = "flights")
+@Table(name = "FLIGHT")
 @Entity
 @Data
 public class Flight {
@@ -22,4 +22,7 @@ public class Flight {
 
     @Column(name = "departure")
     private Timestamp departure;
+
+    @Column(name = "status")
+    private String status;
 }

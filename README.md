@@ -1,5 +1,6 @@
 # Flight Management
-This repository contains code and resources for a flight management system
+This repository contains code and resources for a flight management system implemented using Spring Boot and Java 17.
+The project incorporates an H2 in-memory database and features unit tests leveraging a mocking framework.
 
 ##Clone the project
 
@@ -10,17 +11,18 @@ This repository contains code and resources for a flight management system
 ## H2 setup
 Let's understand how can we setup H2 database in spring based project 
 Following dependency is needed to setup in-memory H2 database 
-
+```
 <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
     <scope>runtime</scope>
 </dependency>
-
+```
 Spring data source properties to be configured inside application.properties
+```
 spring.datasource.url=jdbc:h2:mem:flight-inventory
 spring.datasource.driverClassName=org.h2.Driver
-
+```
 default username is "SA" and password can be kept blank
 
 Once you run the application, H2 database console can be found at http://localhost:9191/h2-console/ (server.port=9191)
