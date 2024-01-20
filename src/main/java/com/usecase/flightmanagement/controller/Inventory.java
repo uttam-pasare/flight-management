@@ -1,5 +1,6 @@
 package com.usecase.flightmanagement.controller;
 
+import com.usecase.flightmanagement.model.Flight;
 import com.usecase.flightmanagement.service.InventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class Inventory {
     private final InventoryService inventoryService;
 
     @GetMapping(value = GET_FLIGHTS)
-    public ResponseEntity<List<Long>> getInventory(){
+    public ResponseEntity<List<Flight>> getInventory(){
         return new ResponseEntity<>(inventoryService.getFlights(), HttpStatus.OK);
     }
 }

@@ -1,6 +1,6 @@
 package com.usecase.flightmanagement.service;
 
-import com.usecase.flightmanagement.entities.Flight;
+import com.usecase.flightmanagement.model.Flight;
 import com.usecase.flightmanagement.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -14,8 +14,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class InventoryService {
     private final InventoryRepository inventoryRepository;
-    public List<Long> getFlights(){
+    public List<Flight> getFlights(){
         log.info("Getting list of flights from the inventory");
-        return inventoryRepository.findAll().stream().map(Flight::getId).collect(Collectors.toList());
+
+        return inventoryRepository.findAll().stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private Flight convertToDto(com.usecase.flightmanagement.entities.Flight flight){
+        return Flight.builder().id(flight.getId())
+                .name(flight.getName())
+                .route(flight.getRoute())
+                .departure(flight.getDeparture())
+                .build();
     }
 }

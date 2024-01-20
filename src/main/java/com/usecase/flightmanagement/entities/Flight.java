@@ -1,10 +1,9 @@
 package com.usecase.flightmanagement.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 @Table(name = "flights")
 @Entity
@@ -14,4 +13,13 @@ public class Flight {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "route")
+    private String route;
+
+    @Column(name = "departure")
+    private Timestamp departure;
 }
